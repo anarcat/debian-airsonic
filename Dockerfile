@@ -33,7 +33,7 @@ RUN chmod a+r /usr/local/tomcat/webapps/ROOT.war ; mkdir -p "$SONIC_DIR"/transco
 
 VOLUME "$SONIC_DIR"
 
-EXPOSE 4040
+EXPOSE 8080
 
 USER "$SONIC_USER"
 
