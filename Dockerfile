@@ -3,11 +3,14 @@ FROM debian:stretch
 MAINTAINER michael@schuerig.de
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV SONIC_USER airsonic
+ENV SONIC_DIR /var/airsonic
+ENV WAR_URL https://github.com/airsonic/airsonic/releases/download/v10.0.0/airsonic.war
 
 # Create a new user account with UID/GID at least 10000.
 # This makes it easier to keep host and docker accounts apart.
-RUN useradd --home /var/airsonic -M airsonic -K UID_MIN=10000 -K GID_MIN=10000 && \
-    mkdir -p /var/airsonic && chown airsonic /var/airsonic && chmod 0770 /var/airsonic
+RUN useradd --home "$SONIC_DIR" -M "$SONIC_USER" -K UID_MIN=10000 -K GID_MIN=10000 && \
+    mkdir -p "$SONIC_DIR" && chown "$SONIC_USER" "$SONIC_DIR" && chmod 0770 "$SONIC_DIR"
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     apt-get update && \
@@ -21,20 +24,18 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
             && \
     apt-get clean
 
-ENV VERSION 10.0.0
-
 # Download and setup airsonic
 RUN rm -rf /usr/local/tomcat/webapps ; mkdir -p /usr/local/tomcat/webapps
 
-ADD https://github.com/airsonic/airsonic/releases/download/v$VERSION/airsonic.war /usr/local/tomcat/webapps/ROOT.war
+ADD $WAR_URL /usr/local/tomcat/webapps/ROOT.war
 
-RUN chmod a+r /usr/local/tomcat/webapps/ROOT.war ; mkdir -p /var/airsonic/transcode && ln -s /usr/bin/flac /usr/bin/lame /usr/bin/ffmpeg /var/airsonic/transcode
+RUN chmod a+r /usr/local/tomcat/webapps/ROOT.war ; mkdir -p "$SONIC_DIR"/transcode && ln -s /usr/bin/flac /usr/bin/lame /usr/bin/ffmpeg "$SONIC_DIR"/transcode
 
-VOLUME /var/airsonic
+VOLUME "$SONIC_DIR"
 
 EXPOSE 4040
 
-USER airsonic
+USER "$SONIC_USER"
 
 ENTRYPOINT ["/usr/bin/java", \
      "-Djava.awt.headless=true", \
