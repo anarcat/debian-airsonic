@@ -5,7 +5,6 @@ MAINTAINER michael@schuerig.de
 ENV DEBIAN_FRONTEND noninteractive
 ENV SONIC_USER airsonic
 ENV SONIC_DIR /var/airsonic
-ENV WAR_URL https://github.com/airsonic/airsonic/releases/download/v10.0.0/airsonic.war
 
 # Create a new user account with UID/GID at least 10000.
 # This makes it easier to keep host and docker accounts apart.
@@ -27,7 +26,7 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
 # Download and setup airsonic
 RUN rm -rf /usr/local/tomcat/webapps ; mkdir -p /usr/local/tomcat/webapps
 
-ADD $WAR_URL /usr/local/tomcat/webapps/ROOT.war
+ADD https://github.com/airsonic/airsonic/releases/download/v10.0.0/airsonic.war /usr/local/tomcat/webapps/ROOT.war
 
 RUN chmod a+r /usr/local/tomcat/webapps/ROOT.war ; mkdir -p "$SONIC_DIR"/transcode && ln -s /usr/bin/flac /usr/bin/lame /usr/bin/ffmpeg "$SONIC_DIR"/transcode
 
