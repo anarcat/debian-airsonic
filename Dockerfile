@@ -28,7 +28,7 @@ ENV LC_ALL en_US.UTF-8
 # Download and setup airsonic
 RUN rm -rf /usr/local/tomcat/webapps ; mkdir -p /usr/local/tomcat/webapps
 
-ADD https://github.com/airsonic/airsonic/releases/download/v10.0.0/airsonic.war /usr/local/tomcat/webapps/ROOT.war
+ADD https://github.com/airsonic/airsonic/releases/download/v10.0.1/airsonic.war /usr/local/tomcat/webapps/ROOT.war
 
 RUN chmod a+r /usr/local/tomcat/webapps/ROOT.war ; mkdir -p "$SONIC_DIR"/transcode && ln -s /usr/bin/flac /usr/bin/lame /usr/bin/ffmpeg "$SONIC_DIR"/transcode
 
