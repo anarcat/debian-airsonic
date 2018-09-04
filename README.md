@@ -21,8 +21,9 @@ A current image is available as a trusted build from the Docker index:
 $ docker pull  mschuerig/debian-airsonic
 ```
 
-The repository page is at
-https://hub.docker.com/r/mschuerig/subsonic-docker-image/
+The repository page is at:
+
+https://hub.docker.com/r/anarcat/docker-airsonic/
 
 
 ## Run a container with this image
