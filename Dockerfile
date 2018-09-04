@@ -29,7 +29,12 @@ ENV LC_ALL en_US.UTF-8
 # Download and setup airsonic
 RUN rm -rf /usr/local/tomcat/webapps ; mkdir -p /usr/local/tomcat/webapps
 
+COPY keyring.gpg /usr/local/tomcat/webapps/keyring.gpg
+
 RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war https://github.com/airsonic/airsonic/releases/download/v10.1.2/airsonic.war
+RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war.asc https://github.com/airsonic/airsonic/releases/download/v10.1.2/airsonic.war.asc
+
+RUN gpgv --keyring /usr/local/tomcat/webapps/keyring.gpg /usr/local/tomcat/webapps/ROOT.war.asc /usr/local/tomcat/webapps/ROOT.war
 
 RUN chmod a+r /usr/local/tomcat/webapps/ROOT.war ; mkdir -p "$SONIC_DIR"/transcode && ln -s /usr/bin/flac /usr/bin/lame /usr/bin/ffmpeg "$SONIC_DIR"/transcode
 
