@@ -58,9 +58,9 @@ $ docker run \
 
 ## Pitfalls
 
-The host music directory mounted into the container at /var/music must be
+The host music directory mounted into the container at `/var/music` must be
 readable by user airsonic (UID 10000).
 
-If you use a volume for the container's /var/airsonic, the host directory
+If you use a volume for the container's `/var/airsonic`, the host directory
 mounted there must have read-write-execute permissions for user
 airsonic (UID 10000).
