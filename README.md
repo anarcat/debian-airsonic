@@ -7,6 +7,10 @@ Docker (http://docker.io) image for the Airsonic media streamer.
 * Debian (https://debian.org/ - latest stable)
 * Runs as normal user (UID 10000)
 
+This was created because no other Docker build had those properties at
+the time. The [official Docker image](https://github.com/airsonic/airsonic/blob/master/install/docker/Dockerfile), for example, runs as root
+and builds on top of Alpine instead.
+
 ## Build your own image
 
 ```shell
