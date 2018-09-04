@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER michael@schuerig.de
+MAINTAINER anarcat@debian.org
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV SONIC_USER airsonic
