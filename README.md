@@ -1,10 +1,10 @@
 This repository contains configuration files for building a 
-Docker (http://docker.io) image for the Airsonic media streamer.
+[Docker](http://docker.io) image for the Airsonic media streamer.
 
 ## Noteworthy
 
-* Airsonic (http://airsonic.org/ - latest version)
-* Debian (https://debian.org/ - latest stable)
+* [Airsonic](http://airsonic.org/) (latest version)
+* [Debian](https://debian.org/) (latest stable)
 * Runs as normal user (UID 10000)
 * Checks upstream OpenPGP signatures
 
@@ -26,10 +26,9 @@ A current image is available as a trusted build from the Docker index:
 $ docker pull anarcat/debian-airsonic
 ```
 
-The repository page is at:
+The Docker repository page is at:
 
 https://hub.docker.com/r/anarcat/debian-airsonic/
-
 
 ## Run a container with this image
 
@@ -41,7 +40,7 @@ $ docker run \
   <your-name>/debian-airsonic
 ```
 
-Arguments passed to `docker run` will be passed as-is to the
+Arguments passed to `docker run` will be passed as-is on the
 Airsonic commandline, see the upstream [configuration guide](https://airsonic.github.io/docs/configure/standalone/) for
 more information about available options. For example,
 to [enable TLS](https://docs.spring.io/spring-boot/docs/1.4.5.RELEASE/reference/htmlsingle/#production-ready-management-specific-ssl), you could do:
