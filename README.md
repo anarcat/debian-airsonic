@@ -28,7 +28,7 @@ $ docker pull  mschuerig/debian-airsonic
 
 The repository page is at:
 
-https://hub.docker.com/r/anarcat/docker-airsonic/
+https://hub.docker.com/r/anarcat/debian-airsonic/
 
 
 ## Run a container with this image
