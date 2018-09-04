@@ -23,7 +23,7 @@ $ docker build -t <your-name>/debian-airsonic debian-airsonic
 A current image is available as a trusted build from the Docker index:
 
 ```shell
-$ docker pull  mschuerig/debian-airsonic
+$ docker pull anarcat/debian-airsonic
 ```
 
 The repository page is at:
