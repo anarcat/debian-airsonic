@@ -63,3 +63,8 @@ readable by user airsonic (UID 10000).
 If you use a volume for the container's `/var/airsonic`, the host directory
 mounted there must have read-write-execute permissions for user
 airsonic (UID 10000).
+
+## Credits
+
+This repository is maintained by [anarcat](https://anarc.at/) but was partly based on
+[work by mschuerig](https://github.com/mschuerig/subsonic-docker-image).
