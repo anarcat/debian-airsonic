@@ -31,8 +31,8 @@ RUN rm -rf /usr/local/tomcat/webapps ; mkdir -p /usr/local/tomcat/webapps
 
 COPY keyring.gpg /usr/local/tomcat/webapps/keyring.gpg
 
-RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war https://github.com/airsonic/airsonic/releases/download/v10.1.2/airsonic.war
-RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war.asc https://github.com/airsonic/airsonic/releases/download/v10.1.2/airsonic.war.asc
+RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war https://github.com/airsonic/airsonic/releases/download/v10.2.1/airsonic.war
+RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war.asc https://github.com/airsonic/airsonic/releases/download/v10.2.1/airsonic.war.asc
 
 RUN gpgv --keyring /usr/local/tomcat/webapps/keyring.gpg /usr/local/tomcat/webapps/ROOT.war.asc /usr/local/tomcat/webapps/ROOT.war
 
