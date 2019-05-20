@@ -27,8 +27,8 @@ RUN rm -rf /usr/local/tomcat/webapps ; mkdir -p /usr/local/tomcat/webapps
 
 COPY keyring.gpg /usr/local/tomcat/webapps/keyring.gpg
 
-RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war https://github.com/airsonic/airsonic/releases/download/v10.2.1/airsonic.war &&\
-  curl -SL -o /usr/local/tomcat/webapps/ROOT.war.asc https://github.com/airsonic/airsonic/releases/download/v10.2.1/airsonic.war.asc && \
+RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war https://github.com/airsonic/airsonic/releases/download/v10.3.0/airsonic.war &&\
+  curl -SL -o /usr/local/tomcat/webapps/ROOT.war.asc https://github.com/airsonic/airsonic/releases/download/v10.3.0/airsonic.war.asc && \
   gpgv --keyring /usr/local/tomcat/webapps/keyring.gpg /usr/local/tomcat/webapps/ROOT.war.asc /usr/local/tomcat/webapps/ROOT.war && \
 	rm /usr/local/tomcat/webapps/keyring.gpg && \
 	chmod a+r /usr/local/tomcat/webapps/ROOT.war && \
