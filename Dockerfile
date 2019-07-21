@@ -37,9 +37,9 @@ COPY keyring.gpg /usr/local/tomcat/webapps/keyring.gpg
 # Download and setup airsonic
 RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war https://github.com/airsonic/airsonic/releases/download/v10.4.0/airsonic.war &&\
   curl -SL -o /usr/local/tomcat/webapps/artifacts-checksums.sha.asc https://github.com/airsonic/airsonic/releases/download/v10.4.0/artifacts-checksums.sha.asc && \
-  set -o pipefail && \
-  gpgv --keyring /usr/local/tomcat/webapps/keyring.gpg --output - /usr/local/tomcat/webapps/artifacts-checksums.sha.asc | sha256sum -c && \
-	rm /usr/local/tomcat/webapps/keyring.gpg && \
+  gpgv --keyring /usr/local/tomcat/webapps/keyring.gpg --output /usr/local/tomcat/webapps/artifacts-checksums.sha /usr/local/tomcat/webapps/artifacts-checksums.sha.asc && \
+  sha256sum -c /usr/local/tomcat/webapps/artifacts-checksums.sha.asc && \
+	rm /usr/local/tomcat/webapps/keyring.gpg /usr/local/tomcat/webapps/artifacts-checksums.sha /usr/local/tomcat/webapps/artifacts-checksums.sha.asc && \
 	chmod a+r /usr/local/tomcat/webapps/ROOT.war && \
 	mkdir -p "$SONIC_DIR"/transcode && \
 	ln -s /usr/bin/flac /usr/bin/lame /usr/bin/ffmpeg "$SONIC_DIR"/transcode
