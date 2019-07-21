@@ -15,7 +15,7 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
             locales \
             curl \
             ca-certificates \
-            openjdk-8-jre-headless \
+            defaut-jre-headless \
             flac \
             lame \
             ffmpeg \
