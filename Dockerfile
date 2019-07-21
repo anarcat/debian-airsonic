@@ -26,8 +26,8 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     # This makes it easier to keep host and docker accounts apart.
     useradd --no-log-init --home "$HOME" -M "$USER" -K UID_MIN=10000 -K GID_MIN=10000 && \
     mkdir -p $HOME && \
-    chown $USER:$USER $HOME
-    rm -rf /usr/local/tomcat/webapps &&\
+    chown $USER:$USER $HOME && \
+    rm -rf /usr/local/tomcat/webapps && \
     mkdir -p /usr/local/tomcat/webapps
 
 ENV LC_ALL en_US.UTF-8
