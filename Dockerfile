@@ -36,9 +36,9 @@ COPY keyring.gpg /usr/local/tomcat/webapps/keyring.gpg
 
 # Download and setup airsonic
 RUN curl -SL -o /usr/local/tomcat/webapps/airsonic.war https://github.com/airsonic/airsonic/releases/download/v10.4.0/airsonic.war &&\
-  curl -SL -o /usr/local/tomcat/webapps/artifacts-checksums.sha.asc https://github.com/airsonic/airsonic/releases/download/v10.4.0/artifacts-checksums.sha.asc
-RUN gpgv --keyring /usr/local/tomcat/webapps/keyring.gpg --output - < /usr/local/tomcat/webapps/artifacts-checksums.sha.asc > /usr/local/tomcat/webapps/artifacts-checksums.sha
-RUN cd /usr/local/tomcat/webapps/ && sha256sum -c artifacts-checksums.sha && \
+  curl -SL -o /usr/local/tomcat/webapps/artifacts-checksums.sha.asc https://github.com/airsonic/airsonic/releases/download/v10.4.0/artifacts-checksums.sha.asc && \
+  gpgv --keyring /usr/local/tomcat/webapps/keyring.gpg --output - < /usr/local/tomcat/webapps/artifacts-checksums.sha.asc > /usr/local/tomcat/webapps/artifacts-checksums.sha && \
+  cd /usr/local/tomcat/webapps/ && sha256sum -c artifacts-checksums.sha && \
 	rm /usr/local/tomcat/webapps/keyring.gpg /usr/local/tomcat/webapps/artifacts-checksums.sha /usr/local/tomcat/webapps/artifacts-checksums.sha.asc && \
         mv airsonic.war ROOT.war && \
 	chmod a+r /usr/local/tomcat/webapps/ROOT.war && \
