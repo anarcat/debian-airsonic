@@ -37,7 +37,7 @@ COPY keyring.gpg /usr/local/tomcat/webapps/keyring.gpg
 # Download and setup airsonic
 RUN curl -SL -o /usr/local/tomcat/webapps/ROOT.war https://github.com/airsonic/airsonic/releases/download/v10.4.0/airsonic.war &&\
   curl -SL -o /usr/local/tomcat/webapps/artifacts-checksums.sha.asc https://github.com/airsonic/airsonic/releases/download/v10.4.0/artifacts-checksums.sha.asc && \
-  set -o pipefail &&
+  set -o pipefail && \
   gpgv --keyring /usr/local/tomcat/webapps/keyring.gpg --output - /usr/local/tomcat/webapps/artifacts-checksums.sha.asc | sha256sum -c && \
 	rm /usr/local/tomcat/webapps/keyring.gpg && \
 	chmod a+r /usr/local/tomcat/webapps/ROOT.war && \
