@@ -20,7 +20,12 @@ $ docker build -t <your-name>/debian-airsonic debian-airsonic
 
 ## Get a pre-built image
 
-A current image is available as a trusted build from the Docker index:
+A current image is available as a build from the GitLab.com Docker
+registry:
+
+    docker pull registry.gitlab.com/anarcat/debian-airsonic
+
+It is also available from Docker hub:
 
 ```shell
 $ docker pull anarcat/debian-airsonic
@@ -29,6 +34,14 @@ $ docker pull anarcat/debian-airsonic
 The Docker repository page is at:
 
 https://hub.docker.com/r/anarcat/debian-airsonic/
+
+Note that this image is built and uploaded by hand so it might be out
+of date.
+
+(That is because I disagree with Docker Hub's security policies: It
+*requires* a deploy key to be added to my account to configure
+automatic builds. I find that abusive and a gross disruption of proper
+authentication boundaries.)
 
 ## Run a container with this image
 
