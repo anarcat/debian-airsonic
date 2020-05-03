@@ -42,8 +42,8 @@ RUN curl -SL -o /usr/local/tomcat/webapps/airsonic.war https://github.com/airson
 	rm /usr/local/tomcat/webapps/keyring.gpg /usr/local/tomcat/webapps/artifacts-checksums.sha /usr/local/tomcat/webapps/artifacts-checksums.sha.asc && \
         mv airsonic.war ROOT.war && \
 	chmod a+r /usr/local/tomcat/webapps/ROOT.war && \
-	mkdir -p "$SONIC_DIR"/transcode && \
-	ln -s /usr/bin/flac /usr/bin/lame /usr/bin/ffmpeg "$SONIC_DIR"/transcode
+	mkdir -p "$HOME"/transcode && \
+	ln -s /usr/bin/flac /usr/bin/lame /usr/bin/ffmpeg "$HOME"/transcode
 
 EXPOSE 8080
 
