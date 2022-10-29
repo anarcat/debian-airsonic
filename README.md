@@ -1,6 +1,10 @@
 This repository contains configuration files for building a 
 [Docker](http://docker.io) image for the Airsonic media streamer.
 
+WARNING: this image is not maintained against upstream changes
+anymore. Airsonic itself is not maintained anymore, leading to yet
+another fork I do not want to get down into. I have switched to [Navidrome](https://www.navidrome.org/).
+
 ## Noteworthy
 
 * [Airsonic](http://airsonic.org/) (latest version)
